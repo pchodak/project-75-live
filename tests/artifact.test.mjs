@@ -50,6 +50,20 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /@keyframes heroMist/i);
   assert.match(decoded, /class="ice-hero"/i);
   assert.match(decoded, /class="process-day-banner"/i);
+  assert.match(decoded, /id="viewNav"/i);
+  assert.match(decoded, /data-app-view="config"/i);
+  assert.match(decoded, /data-app-view="plan"/i);
+  assert.match(decoded, /Ustaw przepis/i);
+  assert.match(decoded, /Mój plan/i);
+  assert.match(decoded, /appView=hasProgress\?"plan"/i);
+  assert.match(decoded, /body\{background-attachment:scroll!important\}/i);
+  assert.match(decoded, /animation:none!important;filter:none!important/i);
+  assert.match(decoded, /\.view-plan \.ice-hero\{display:none\}/i);
+  assert.match(decoded, /Lodowa krawędź/i);
+  assert.match(decoded, /clip-path:polygon/i);
+  assert.match(decoded, /bottom:-20px/i);
+  const chooseFlour = decoded.match(/function chooseFlour\([^\n]+/i)?.[0] ?? "";
+  assert.doesNotMatch(chooseFlour, /markCustom/i);
   assert.match(decoded, /CIASTO PIZZA — kalkulator i przewodnik/i);
   assert.match(decoded, /Dzień 3 — domknięcie ciasta/i);
   assert.match(decoded, /Bardzo zimna woda \(2–5°C\)/i);
@@ -74,7 +88,7 @@ test("publiczna strona zawiera 32 lokalne zdjęcia opakowań", async () => {
 
 test("publiczna strona zawiera lokalny lodowy baner", async () => {
   const hero = await stat(new URL("../docs/assets/ui/u01.webp", import.meta.url));
-  assert.ok(hero.size > 100_000);
-  assert.ok(hero.size < 300_000);
+  assert.ok(hero.size > 60_000);
+  assert.ok(hero.size < 150_000);
   assert.match(decodeArtifact(artifact), /assets\/ui\/u01\.webp/i);
 });
