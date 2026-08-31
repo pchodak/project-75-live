@@ -44,6 +44,9 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /Zaczynam robić bigę/i);
   assert.match(decoded, /Gotowe — następny krok/i);
   assert.match(decoded, /CLEAN WARCRAFT THEME/i);
+  assert.match(decoded, /FROZEN THRONE UI/i);
+  assert.match(decoded, /@keyframes frozenClouds/i);
+  assert.match(decoded, /prefers-reduced-motion:reduce/i);
   assert.doesNotMatch(decoded, /id="applyFlourAdvice"|id="applyReferenceProcess"|CaliwMace/i);
   assert.doesNotMatch(decoded, /<script[^>]+src=|<link[^>]+stylesheet|XMLHttpRequest|WebSocket/i);
 });
