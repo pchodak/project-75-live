@@ -36,6 +36,11 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /<script>/i);
   assert.match(decoded, /data-out="activeBigaProcess"/i);
   assert.match(decoded, /id="trackerCurrent"/i);
+  assert.match(decoded, /id="flourDialog"/i);
+  assert.match(decoded, /id="flourSearch"/i);
+  assert.match(decoded, /polselli-vivace/i);
+  assert.match(decoded, /naldoni-manitoba/i);
+  assert.match(decoded, /Zalecany czas to punkt startowy/i);
   assert.match(decoded, /Zaczynam robić bigę/i);
   assert.match(decoded, /Gotowe — następny krok/i);
   assert.match(decoded, /CLEAN WARCRAFT THEME/i);
