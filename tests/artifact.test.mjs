@@ -59,9 +59,12 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /body\{background-attachment:scroll!important\}/i);
   assert.match(decoded, /animation:none!important;filter:none!important/i);
   assert.match(decoded, /\.view-plan \.ice-hero\{display:none\}/i);
-  assert.match(decoded, /Lodowa krawędź/i);
-  assert.match(decoded, /clip-path:polygon/i);
-  assert.match(decoded, /bottom:-20px/i);
+  assert.match(decoded, /Czytelniejsza wcześniejsza paleta/i);
+  assert.match(decoded, /class="results config-only"/i);
+  assert.match(decoded, /\.view-plan \.results\{display:none!important\}/i);
+  assert.match(decoded, /biga-ingredient\{min-width:0;min-height:88px/i);
+  assert.match(decoded, /fmtBannerTime/i);
+  assert.doesNotMatch(decoded, /Lodowa krawędź/i);
   const chooseFlour = decoded.match(/function chooseFlour\([^\n]+/i)?.[0] ?? "";
   assert.doesNotMatch(chooseFlour, /markCustom/i);
   assert.match(decoded, /CIASTO PIZZA — kalkulator i przewodnik/i);
