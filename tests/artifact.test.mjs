@@ -24,6 +24,7 @@ function decodeArtifact(html) {
 test("publiczny plik zawiera wyłącznie samodzielny zakodowany artefakt", () => {
   assert.match(artifact, /^<!doctype html>/i);
   assert.match(artifact, /TextDecoder/);
+  assert.match(artifact, /<title>CIASTO PIZZA<\/title>/i);
   assert.ok(artifact.length > 50_000);
   assert.doesNotMatch(artifact, /<link[^>]+stylesheet|<script[^>]+src=|fetch\(/i);
 });
