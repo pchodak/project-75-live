@@ -46,6 +46,14 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /CLEAN WARCRAFT THEME/i);
   assert.match(decoded, /FROZEN THRONE UI/i);
   assert.match(decoded, /@keyframes frozenClouds/i);
+  assert.match(decoded, /@keyframes heroMist/i);
+  assert.match(decoded, /class="ice-hero"/i);
+  assert.match(decoded, /class="process-day-banner"/i);
+  assert.match(decoded, /CIASTO PIZZA — kalkulator i przewodnik/i);
+  assert.match(decoded, /Dzień 3 — domknięcie ciasta/i);
+  assert.match(decoded, /Bardzo zimna woda \(2–5°C\)/i);
+  assert.match(decoded, /function enhanceTooltips\(\)/i);
+  assert.match(decoded, /body:before,body:after\{display:none\}/i);
   assert.match(decoded, /prefers-reduced-motion:reduce/i);
   assert.doesNotMatch(decoded, /id="applyFlourAdvice"|id="applyReferenceProcess"|CaliwMace/i);
   assert.doesNotMatch(decoded, /<script[^>]+src=|<link[^>]+stylesheet|XMLHttpRequest|WebSocket/i);
@@ -61,4 +69,11 @@ test("publiczna strona zawiera 32 lokalne zdjęcia opakowań", async () => {
   }
   const decoded = decodeArtifact(artifact);
   assert.match(decoded, /<img src="\$\{f\.image\}" alt="Opakowanie/i);
+});
+
+test("publiczna strona zawiera lokalny lodowy baner", async () => {
+  const hero = await stat(new URL("../docs/assets/ui/u01.webp", import.meta.url));
+  assert.ok(hero.size > 100_000);
+  assert.ok(hero.size < 300_000);
+  assert.match(decodeArtifact(artifact), /assets\/ui\/u01\.webp/i);
 });
