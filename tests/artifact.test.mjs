@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir, stat } from "node:fs/promises";
 import test from "node:test";
 
 const artifact = await readFile(new URL("../docs/index.html", import.meta.url), "utf8");
@@ -46,4 +46,16 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /CLEAN WARCRAFT THEME/i);
   assert.doesNotMatch(decoded, /id="applyFlourAdvice"|id="applyReferenceProcess"|CaliwMace/i);
   assert.doesNotMatch(decoded, /<script[^>]+src=|<link[^>]+stylesheet|XMLHttpRequest|WebSocket/i);
+});
+
+test("publiczna strona zawiera 32 lokalne zdjęcia opakowań", async () => {
+  const files = await readdir(new URL("../docs/assets/flours/", import.meta.url));
+  assert.equal(files.length, 32);
+  assert.ok(files.every((file) => /^f\d{2}\.(avif|webp)$/.test(file)));
+  for (const file of files) {
+    const info = await stat(new URL(`../docs/assets/flours/${file}`, import.meta.url));
+    assert.ok(info.size > 2_000);
+  }
+  const decoded = decodeArtifact(artifact);
+  assert.match(decoded, /<img src="\$\{f\.image\}" alt="Opakowanie/i);
 });
