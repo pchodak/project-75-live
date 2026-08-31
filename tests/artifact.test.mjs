@@ -34,11 +34,11 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /<style>/i);
   assert.match(decoded, /<select/i);
   assert.match(decoded, /<script>/i);
-  assert.match(decoded, /Doradca działa automatycznie/i);
+  assert.match(decoded, /data-out="activeBigaProcess"/i);
   assert.match(decoded, /id="trackerCurrent"/i);
   assert.match(decoded, /Zaczynam robić bigę/i);
   assert.match(decoded, /Gotowe — następny krok/i);
-  assert.match(decoded, /ICE CITADEL THEME/i);
-  assert.doesNotMatch(decoded, /id="applyFlourAdvice"/i);
+  assert.match(decoded, /CLEAN WARCRAFT THEME/i);
+  assert.doesNotMatch(decoded, /id="applyFlourAdvice"|id="applyReferenceProcess"|CaliwMace/i);
   assert.doesNotMatch(decoded, /<script[^>]+src=|<link[^>]+stylesheet|XMLHttpRequest|WebSocket/i);
 });
