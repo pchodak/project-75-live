@@ -55,6 +55,15 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /data-app-view="plan"/i);
   assert.match(decoded, /Ustaw przepis/i);
   assert.match(decoded, /Mój plan/i);
+  assert.match(decoded, /id="startBigaNow"/i);
+  assert.match(decoded, /data-out="nowBakePreview"/i);
+  assert.match(decoded, /function startBigaNow\(\)/i);
+  assert.match(decoded, /activeStarted:"make-biga"/i);
+  assert.match(decoded, /BLACK ORANGE STREAMING UI/i);
+  assert.match(decoded, /Samotne Włoszki/i);
+  assert.match(decoded, /id="baitAdCity"/i);
+  assert.match(decoded, /navigator\.geolocation\.getCurrentPosition/i);
+  assert.match(decoded, /const brokenUtf8=/i);
   assert.match(decoded, /appView=hasProgress\?"plan"/i);
   assert.match(decoded, /body\{background-attachment:scroll!important\}/i);
   assert.match(decoded, /animation:none!important;filter:none!important/i);
