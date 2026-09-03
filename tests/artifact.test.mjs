@@ -41,7 +41,7 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /id="flourSearch"/i);
   assert.match(decoded, /polselli-vivace/i);
   assert.match(decoded, /naldoni-manitoba/i);
-  assert.match(decoded, /Zalecany czas to punkt startowy/i);
+  assert.match(decoded, /orientacyjnym modelem aplikacji/i);
   assert.match(decoded, /Zaczynam robić bigę/i);
   assert.match(decoded, /Gotowe — następny krok/i);
   assert.match(decoded, /CLEAN WARCRAFT THEME/i);
@@ -49,7 +49,10 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /@keyframes frozenClouds/i);
   assert.match(decoded, /@keyframes heroMist/i);
   assert.match(decoded, /class="ice-hero"/i);
-  assert.match(decoded, /class="process-day-banner"/i);
+  assert.match(decoded, /class="master-timeline"/i);
+  assert.match(decoded, /id="processTimeline"/i);
+  assert.match(decoded, /aria-current="step"/i);
+  assert.match(decoded, /data-field="mixTime"/i);
   assert.match(decoded, /id="viewNav"/i);
   assert.match(decoded, /data-app-view="config"/i);
   assert.match(decoded, /data-app-view="plan"/i);
@@ -82,6 +85,8 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /toggle\.textContent=expanded\?/i);
   assert.match(decoded, /schedule-agenda\.expanded/i);
   assert.match(decoded, /function setPresetFlours\(/i);
+  assert.match(decoded, /function processTimeline\(/i);
+  assert.match(decoded, /Pokaż 7 kroków/i);
   assert.match(decoded, /PRESET_RECIPES\[activePreset\]/i);
   assert.match(decoded, /appView=hasProgress\?"plan"/i);
   assert.match(decoded, /body\{background-attachment:scroll!important\}/i);
