@@ -79,6 +79,9 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /text\/calendar;charset=utf-8/i);
   assert.match(decoded, /id="recipeConfig"/i);
   assert.match(decoded, /data-out="recipeSummary"/i);
+  assert.match(decoded, /class="config-overview config-only"/i);
+  assert.match(decoded, /data-out="doughSummary"/i);
+  assert.match(decoded, /data-out="bakeSummary"/i);
   assert.match(decoded, /function initCompactConfig\(\)/i);
   assert.match(decoded, /id="toggleFlour"/i);
   assert.match(decoded, /setFlourExpanded\(false\)/i);
