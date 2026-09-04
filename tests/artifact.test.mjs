@@ -39,6 +39,9 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /id="trackerCurrent"/i);
   assert.match(decoded, /id="flourDialog"/i);
   assert.match(decoded, /id="flourSearch"/i);
+  assert.match(decoded, /data-open-flour="all"/i);
+  assert.match(decoded, /Mąka do całego ciasta/i);
+  assert.doesNotMatch(decoded, /id="finalFlourSelect"|data-field="hydration"/i);
   assert.match(decoded, /polselli-vivace/i);
   assert.match(decoded, /naldoni-manitoba/i);
   assert.match(decoded, /roboczy punkt startowy aplikacji/i);
@@ -92,7 +95,7 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.doesNotMatch(decoded, /id="toggleFlour"|setFlourExpanded\(/i);
   assert.match(decoded, /schedule-agenda\.expanded/i);
   assert.match(decoded, /function setPresetFlours\(/i);
-  assert.match(decoded, /version:8/i);
+  assert.match(decoded, /version:9/i);
   assert.match(decoded, /function processTimeline\(/i);
   assert.match(decoded, /Pokaż 7 kroków/i);
   assert.match(decoded, /PRESET_RECIPES\[activePreset\]/i);
