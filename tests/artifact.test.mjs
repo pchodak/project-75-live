@@ -45,7 +45,7 @@ test("ładunek odtwarza kompletny statyczny frontend", () => {
   assert.match(decoded, /polselli-vivace/i);
   assert.match(decoded, /naldoni-manitoba/i);
   assert.match(decoded, /roboczy punkt startowy aplikacji/i);
-  assert.match(decoded, /Zaczynam robić bigę/i);
+  assert.match(decoded, /Zaczynam robić.*prefermentName/i);
   assert.match(decoded, /Zrobione — pokaż następny krok/i);
   assert.match(decoded, /PROFESSIONAL WORKFLOW UI/i);
   assert.match(decoded, /class="master-timeline process-preview"/i);
